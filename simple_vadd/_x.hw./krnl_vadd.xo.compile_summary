@@ -1,0 +1,85 @@
+<ENTRY>
+{
+ "thisFile": "/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./krnl_vadd.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jan 29 23:46:44 2021",
+ "timestampMillis": "1611992804551",
+ "buildStep": {
+  "cmdId": "8eb0f35a-1f3d-411e-8c90-19f90a64cf33",
+  "name": "v++",
+  "logFile": "/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./krnl_vadd/krnl_vadd.steps.log",
+  "commandLine": "/cad/xilinx/vitis/2020.1/Vitis/2020.1/bin/unwrapped/lnx64.o/v++  --xp \"vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k krnl_vadd -t hw --platform --save-temps --temp_dir ./_x.hw. -Isrc -o_x.hw./krnl_vadd.xo src/krnl_vadd.cpp ",
+  "args": [
+   "-c",
+   "-k",
+   "krnl_vadd",
+   "-t",
+   "hw",
+   "--platform",
+   "--save-temps",
+   "--temp_dir",
+   "./_x.hw.",
+   "-Isrc",
+   "-o_x.hw./krnl_vadd.xo",
+   "src/krnl_vadd.cpp"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jan 29 23:46:44 2021",
+ "timestampMillis": "1611992804553",
+ "status": {
+  "cmdId": "8eb0f35a-1f3d-411e-8c90-19f90a64cf33",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jan 29 23:46:57 2021",
+ "timestampMillis": "1611992817561",
+ "report": {
+  "path": "/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./reports/krnl_vadd/v++_compile_krnl_vadd_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jan 29 23:46:57 2021",
+ "timestampMillis": "1611992817562",
+ "report": {
+  "path": "/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./v++_compile_krnl_vadd_guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jan 29 23:46:57 2021",
+ "timestampMillis": "1611992817572",
+ "status": {
+  "cmdId": "8eb0f35a-1f3d-411e-8c90-19f90a64cf33",
+  "state": "CS_FAILED"
+ }
+}
+</ENTRY>

@@ -1,0 +1,3 @@
+
+ 
+v++_compile_krnl_vadd$a5322143-3930-4303-9e8d-f558d5ba50a6uv++  -c -k krnl_vadd -t hw --platform --save-temps --temp_dir ./_x.hw. -Isrc -o_x.hw./krnl_vadd.xo src/krnl_vadd.cpp *~"z/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./reports/krnl_vadd/v++_compile_krnl_vadd_guidance.html2j"f/home/chtsao/aha/Vitis_Accel_Examples/cpp_kernels/simple_vadd/_x.hw./v++_compile_krnl_vadd_guidance.pb

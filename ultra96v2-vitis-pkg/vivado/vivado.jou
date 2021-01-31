@@ -1,0 +1,190 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Jan 30 00:04:04 2021
+# Process ID: 26504
+# Current directory: /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado
+# Command line: vivado
+# Log file: /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/vivado.log
+# Journal file: /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+xhub::refresh_catalog [xhub::get_xstores xilinx_board_store]
+xhub::refresh_catalog [xhub::get_xstores Vivado_example_project]
+xhub::install [xhub::get_xitems em.avnet.com:xilinx_board_store:Ultra96:1.2]
+set_param board.repoPaths {/home/chtsao/.Xilinx/Vivado/2020.1/xhub/board_store/xilinx_board_store}
+create_project ultra96v2-xsa /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa -part xczu3eg-sbva484-1-e
+set_property board_part em.avnet.com:ultra96:part0:1.2 [current_project]
+create_bd_design "ultra96v2_design"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.3 zynq_ultra_ps_e_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_board_preset "1" }  [get_bd_cells zynq_ultra_ps_e_0]
+set_property -dict [list CONFIG.PSU__USE__M_AXI_GP0 {0} CONFIG.PSU__USE__M_AXI_GP1 {0}] [get_bd_cells zynq_ultra_ps_e_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+set_property location {2 387 -243} [get_bd_cells zynq_ultra_ps_e_0]
+set_property -dict [list CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT3_USED {true} CONFIG.CLKOUT4_USED {true} CONFIG.RESET_TYPE {ACTIVE_LOW} CONFIG.MMCM_CLKOUT1_DIVIDE {12} CONFIG.MMCM_CLKOUT2_DIVIDE {12} CONFIG.MMCM_CLKOUT3_DIVIDE {12} CONFIG.NUM_OUT_CLKS {4} CONFIG.RESET_PORT {resetn} CONFIG.CLKOUT2_JITTER {115.831} CONFIG.CLKOUT2_PHASE_ERROR {87.180} CONFIG.CLKOUT3_JITTER {115.831} CONFIG.CLKOUT3_PHASE_ERROR {87.180} CONFIG.CLKOUT4_JITTER {115.831} CONFIG.CLKOUT4_PHASE_ERROR {87.180}] [get_bd_cells clk_wiz_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0
+endgroup
+set_property location {3 1062 -652} [get_bd_cells proc_sys_reset_0]
+set_property location {0.5 91 -401} [get_bd_cells zynq_ultra_ps_e_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_1
+endgroup
+set_property location {4 1175 -443} [get_bd_cells proc_sys_reset_1]
+set_property location {3.5 1360 -663} [get_bd_cells proc_sys_reset_0]
+set_property location {3.5 1186 -397} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1060 -114} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1190 -100} [get_bd_cells proc_sys_reset_1]
+set_property location {2.5 1063 -530} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1077 -763} [get_bd_cells proc_sys_reset_0]
+set_property location {3.5 1352 -972} [get_bd_cells proc_sys_reset_0]
+set_property location {3 1010 -703} [get_bd_cells proc_sys_reset_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_2
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_3
+endgroup
+set_property location {5 1526 -358} [get_bd_cells proc_sys_reset_2]
+set_property location {4 1514 -144} [get_bd_cells proc_sys_reset_3]
+set_property location {3 1508 -296} [get_bd_cells proc_sys_reset_2]
+set_property location {3 1491 -489} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1502 -670} [get_bd_cells proc_sys_reset_0]
+set_property location {3 1496 -104} [get_bd_cells proc_sys_reset_2]
+undo
+startgroup
+set_property location {3 1517 -540} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1517 -720} [get_bd_cells proc_sys_reset_0]
+endgroup
+startgroup
+set_property location {3 1488 -466} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1488 -646} [get_bd_cells proc_sys_reset_0]
+endgroup
+startgroup
+set_property location {3 1493 -498} [get_bd_cells proc_sys_reset_1]
+set_property location {3 1493 -708} [get_bd_cells proc_sys_reset_0]
+endgroup
+set_property location {1 777 -400} [get_bd_cells zynq_ultra_ps_e_0]
+startgroup
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0] [get_bd_pins clk_wiz_0/resetn]
+endgroup
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins clk_wiz_0/clk_in1]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
+connect_bd_net [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in]
+connect_bd_net [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins proc_sys_reset_3/ext_reset_in]
+connect_bd_net [get_bd_pins proc_sys_reset_3/ext_reset_in] [get_bd_pins proc_sys_reset_2/ext_reset_in]
+startgroup
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0] [get_bd_pins proc_sys_reset_3/ext_reset_in]
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked]
+connect_bd_net [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins proc_sys_reset_3/dcm_locked] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins proc_sys_reset_2/dcm_locked] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out3] [get_bd_pins proc_sys_reset_3/slowest_sync_clk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out4] [get_bd_pins proc_sys_reset_2/slowest_sync_clk]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0
+endgroup
+set_property location {1.5 457 -403} [get_bd_cells xlconcat_0]
+delete_bd_objs [get_bd_cells xlconcat_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_intc:4.1 axi_intc_0
+endgroup
+set_property location {1 464 -435} [get_bd_cells axi_intc_0]
+set_property location {1 463 -400} [get_bd_cells axi_intc_0]
+startgroup
+set_property -dict [list CONFIG.PSU__USE__M_AXI_GP2 {1}] [get_bd_cells zynq_ultra_ps_e_0]
+endgroup
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk] [get_bd_pins clk_wiz_0/clk_out1]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/clk_wiz_0/clk_out1 (100 MHz)} Clk_slave {Auto} Clk_xbar {Auto} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_LPD} Slave {/axi_intc_0/s_axi} ddr_seg {Auto} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins axi_intc_0/s_axi]
+connect_bd_net [get_bd_pins axi_intc_0/irq] [get_bd_pins zynq_ultra_ps_e_0/pl_ps_irq0]
+set_property PFM.IRQ {intr {id 0 range 32}} [get_bd_cells /axi_intc_0]
+set_property pfm_name ultra96v2_design [get_files {/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd}]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "HP0" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "HP0" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "HP1" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "HP0" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "HP1" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "HP2" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory ""} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory ""} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "HPC0" memory ""} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "HPC1" memory ""} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "HP0" memory ""} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "HP1" memory ""} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "HP2" memory ""} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "HP3" memory ""}} [get_bd_cells /zynq_ultra_ps_e_0]
+startgroup
+set_property PFM.CLOCK {clk_out1 {id "1" is_default "false" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "2" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+endgroup
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "false" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "2" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "2" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out3 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "1" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "1" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "2" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+set_property PFM.CLOCK {clk_out1 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed"} clk_out2 {id "1" is_default "false" proc_sys_reset "/proc_sys_reset_1" status "fixed"} clk_out3 {id "2" is_default "false" proc_sys_reset "/proc_sys_reset_3" status "fixed"} clk_out4 {id "3" is_default "false" proc_sys_reset "/proc_sys_reset_2" status "fixed"}} [get_bd_cells /clk_wiz_0]
+startgroup
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "" memory ""} M02_AXI {memport "M_AXI_GP" sptag "" memory ""} M03_AXI {memport "M_AXI_GP" sptag "" memory ""} M04_AXI {memport "M_AXI_GP" sptag "" memory ""} M05_AXI {memport "M_AXI_GP" sptag "" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+endgroup
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "" memory ""} M03_AXI {memport "M_AXI_GP" sptag "" memory ""} M04_AXI {memport "M_AXI_GP" sptag "" memory ""} M05_AXI {memport "M_AXI_GP" sptag "" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "" memory ""} M04_AXI {memport "M_AXI_GP" sptag "" memory ""} M05_AXI {memport "M_AXI_GP" sptag "" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "" memory ""} M05_AXI {memport "M_AXI_GP" sptag "" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M05_AXI {memport "M_AXI_GP" sptag "" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M05_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M06_AXI {memport "M_AXI_GP" sptag "" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M05_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M06_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M07_AXI {memport "M_AXI_GP" sptag "" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M05_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M06_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M07_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M08_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M02_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M03_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M04_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M05_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M06_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M07_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""} M08_AXI {memport "M_AXI_GP" sptag "HPM0_LPD" memory ""}} [get_bd_cells /ps8_0_axi_periph]
+set_property platform.design_intent.embedded true [current_project]
+set_property platform.design_intent.server_managed false [current_project]
+set_property platform.design_intent.external_host false [current_project]
+set_property platform.design_intent.datacenter false [current_project]
+set_property platform.default_output_type "sd_card" [current_project]
+validate_bd_design
+validate_bd_design -force
+generate_target all [get_files  /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd]
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_zynq_ultra_ps_e_0_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_clk_wiz_0_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_proc_sys_reset_0_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_proc_sys_reset_1_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_proc_sys_reset_2_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_proc_sys_reset_3_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_axi_intc_0_0] }
+catch { config_ip_cache -export [get_ips -all ultra96v2_design_auto_pc_0] }
+export_ip_user_files -of_objects [get_files /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd]
+launch_runs ultra96v2_design_zynq_ultra_ps_e_0_0_synth_1 ultra96v2_design_clk_wiz_0_0_synth_1 ultra96v2_design_proc_sys_reset_0_0_synth_1 ultra96v2_design_proc_sys_reset_1_0_synth_1 ultra96v2_design_proc_sys_reset_2_0_synth_1 ultra96v2_design_proc_sys_reset_3_0_synth_1 ultra96v2_design_axi_intc_0_0_synth_1 ultra96v2_design_auto_pc_0_synth_1 -jobs 12
+wait_on_run ultra96v2_design_zynq_ultra_ps_e_0_0_synth_1
+wait_on_run ultra96v2_design_clk_wiz_0_0_synth_1
+wait_on_run ultra96v2_design_proc_sys_reset_0_0_synth_1
+wait_on_run ultra96v2_design_proc_sys_reset_1_0_synth_1
+wait_on_run ultra96v2_design_proc_sys_reset_2_0_synth_1
+wait_on_run ultra96v2_design_proc_sys_reset_3_0_synth_1
+wait_on_run ultra96v2_design_axi_intc_0_0_synth_1
+wait_on_run ultra96v2_design_auto_pc_0_synth_1
+export_simulation -of_objects [get_files /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd] -directory /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.ip_user_files/sim_scripts -ip_user_files_dir /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.ip_user_files -ipstatic_source_dir /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/modelsim} {questa=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/questa} {ies=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/ies} {xcelium=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/xcelium} {vcs=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/vcs} {riviera=/home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+set_property PFM.IRQ {intr {id 0 range 32}} [get_bd_cells /axi_intc_0]
+validate_bd_design
+make_wrapper -files [get_files /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/ultra96v2_design.bd] -top
+add_files -norecurse /home/chtsao/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2-xsa/ultra96v2-xsa.srcs/sources_1/bd/ultra96v2_design/hdl/ultra96v2_design_wrapper.v
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+write_hw_platform -include_bit ultra96v2.xsa
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+ls
+validate_hw_platform ./ultra96v2.xsa
+write_hw_platform -include_bit ultra96v2.xsa
+wait_on_run impl_1
+open_run impl_1
+write_hw_platform -include_bit ultra96v2.xsa
+validate_hw_platform ./ultra96v2.xsa
+wait_on_run
