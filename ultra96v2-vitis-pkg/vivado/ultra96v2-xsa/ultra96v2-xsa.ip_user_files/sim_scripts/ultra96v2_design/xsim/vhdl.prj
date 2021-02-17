@@ -1,8 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/ultra96v2_design/ip/ultra96v2_design_proc_sys_reset_0_0/sim/ultra96v2_design_proc_sys_reset_0_0.vhd" \
-"../../../bd/ultra96v2_design/ip/ultra96v2_design_proc_sys_reset_1_0/sim/ultra96v2_design_proc_sys_reset_1_0.vhd" \
-"../../../bd/ultra96v2_design/ip/ultra96v2_design_proc_sys_reset_2_0/sim/ultra96v2_design_proc_sys_reset_2_0.vhd" \
-"../../../bd/ultra96v2_design/ip/ultra96v2_design_proc_sys_reset_3_0/sim/ultra96v2_design_proc_sys_reset_3_0.vhd" \
-"../../../bd/ultra96v2_design/ip/ultra96v2_design_axi_intc_0_0/sim/ultra96v2_design_axi_intc_0_0.vhd" \
-
-nosort

@@ -1,5 +1,0 @@
-PETALINUX_VER=2020.1
-VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/charles/Documents/mnt/kiwi/aha/FPGA_gen_v2/ultra96v2-vitis-pkg/vivado/ultra96v2.xsa
-HARDWARE_CHECKSUM=2d04b2eef716c396c2f1d41dd3c339de
-YOCTO_SDK=b034efc026f5f7d24a4732927cb62e43
