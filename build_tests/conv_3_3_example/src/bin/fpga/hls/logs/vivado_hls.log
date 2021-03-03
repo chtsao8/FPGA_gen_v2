@@ -1,0 +1,17 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /home/charles/Xilinx/Vivado/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/home/charles/Xilinx/Vivado/Vivado/2020.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'charles' on host 'charles-XPS-13-9370' (Linux_x86_64 version 5.4.0-53-generic) on Sun Nov 22 17:15:58 HST 2020
+INFO: [HLS 200-10] On os Ubuntu 18.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/charles/Documents/aha/FPGA-gen/fpga_builder/apps/conv_3_3'
+WARNING: [HLS 200-40] Environment variable 'CPLUS_INCLUDE_PATH' is set to /home/charles/Documents/2020_REU/RDAI/rdai_api:/home/charles/anaconda2/include/python2.7:/home/charles/Documents/2020_REU/Halide-to-Hardware/include:/home/charles/Documents/2020_REU/Halide-to-Hardware/apps/hardware_benchmarks/hw_support:/home/charles/Documents/2020_REU/Halide-to-Hardware/tools/:/usr/local/include:/home/charles/Documents/2020_REU/Halide-to-Hardware/apps/hardware_benchmarks/apps/unsharp/bin:/home/charles/Documents/2020_REU/clockwork/.
+Sourcing Tcl script './bin/fpga/hls/gen_hls_ip.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/home/charles/Documents/aha/FPGA-gen/fpga_builder/apps/conv_3_3/conv_3_3'.
+INFO: [HLS 200-10] Adding design file '/home/charles/Documents/aha/FPGA-gen/fpga_builder/apps/conv_3_3/bin/clockwork/unoptimized_conv_3_3.cpp' to the project
+INFO: [HLS 200-10] Opening and resetting solution '/home/charles/Documents/aha/FPGA-gen/fpga_builder/apps/conv_3_3/conv_3_3/conv_3_3'.
+INFO: [HLS 200-10] Cleaning up the solution database.
