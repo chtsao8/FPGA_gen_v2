@@ -110,7 +110,7 @@ $(XO): ./src/$(APP_NAME).cpp
 	-@mkdir -p $(@D)
 	$(VPP) $(VPP_TARGET) $(VPP_PLATFORM) --compile \
 	--temp_dir $(APP_BIN_PATH)/fpga --report_dir $(APP_BIN_PATH)/fpga/reports --log_dir $(APP_BIN_PATH)/fpga/logs \
-	-I "$(<D)" -I "$(CLOCKWORK_SRC_PATH)" \
+	-I $(<D) -I $(CLOCKWORK_SRC_PATH) -D__VIVADO_SYNTH__ \
 	-k $(TOP_LEVEL_FUNCTION) -o "$@" "$<"
 
 

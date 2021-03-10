@@ -457,10 +457,10 @@ struct hls_packed_struct {
 };
 
 void unoptimized_conv_3_3_rdai(hls::stream<hls_packed_struct<16> > &arg_in0, hls::stream<hls_packed_struct<16> > &arg_out) {
-#pragma HLS DATAFLOW
-#pragma HLS INTERFACE axis register port=arg_in0 name=arg_in0
-#pragma HLS INTERFACE axis register port=arg_out name=arg_out
-#pragma HLS INTERFACE ap_ctrl_none port=return
+  #pragma HLS DATAFLOW
+  #pragma HLS INTERFACE axis register port=arg_in0 name=arg_in0_v
+  #pragma HLS INTERFACE axis register port=arg_out name=arg_out_v
+  #pragma HLS INTERFACE ap_ctrl_none port=return
 
   // input HW streams
   HWStream<hw_uint<16> > arg_in0_hwstream;
