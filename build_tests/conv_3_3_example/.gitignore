@@ -1,0 +1,6 @@
+bin/
+.ipcache/
+.Xil/
+v++.package_summary
+xcd.log
+xrc.log

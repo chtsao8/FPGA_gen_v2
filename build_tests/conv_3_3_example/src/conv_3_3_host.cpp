@@ -44,7 +44,7 @@ ALL TIMES.
 #include <stdlib.h>
 #include <fstream>
 #include <iostream>
-#include "vadd.h"
+#include "conv_3_3_host.h"
 
 static const int DATA_SIZE = 4096;
 

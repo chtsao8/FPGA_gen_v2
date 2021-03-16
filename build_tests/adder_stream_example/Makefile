@@ -1,3 +1,4 @@
+###############################################################################
 # Usage: TODO
 ###############################################################################
 # MODIFICATION: NONE
@@ -15,10 +16,9 @@ include ../Makefile.defs.inc
 #
 ###############################################################################
 
-APP_NAME                        = stream_test
-# APP_NAME                        = bin/clockwork/unoptimized_conv_3_3
-TOP_LEVEL_FUNCTION				= unoptimized_conv_3_3_rdai
-HOST_NAME						= conv_3_3_host
+APP_NAME                        = adder
+TOP_LEVEL_FUNCTION				= adder
+HOST_NAME						= host
 APP_BIN_PATH                    = ./bin
 HL_TARGET                       = host
 

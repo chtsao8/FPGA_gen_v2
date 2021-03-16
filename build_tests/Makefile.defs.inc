@@ -14,9 +14,10 @@ CLOCKWORK_SRC_PATH              = $(HALIDE_SRC_PATH)/../clockwork
 # App-specific definitions
 ###############################################################################
 
-APP_NAME                        = krnl_vadd
-TOP_LEVEL_FUNCTION				= krnl_vadd
-HOST_NAME						= vadd
+APP_NAME                        = stream_test
+# APP_NAME                        = bin/clockwork/unoptimized_conv_3_3
+TOP_LEVEL_FUNCTION				= unoptimized_conv_3_3_rdai
+HOST_NAME						= conv_3_3_host
 APP_BIN_PATH                    = ./bin
 HL_TARGET                       = host
 # hardware compiler TARGET (sw_emu, hw_emu, hw)
@@ -71,79 +72,3 @@ XCLBIN += $(APP_BIN_PATH)/fpga/$(APP_NAME).xclbin
 XO += $(APP_BIN_PATH)/fpga/$(APP_NAME).xo # intermediate xilinx object file
 HOST_OBJECT += $(APP_BIN_PATH)/fpga/src/$(HOST_NAME).o
 HOST_EXE += $(APP_BIN_PATH)/fpga/$(HOST_NAME)
-
-###############################################################################
-# primary build targets
-###############################################################################
-
-.PHONY: all clean
-all: $(XCLBIN)
-
-.NOTPARALLEL: clean
-
-clean-host:
-	-$(RMDIR) $(APP_BIN_PATH)/fpga/src
-
-clean-fpga:
-	-$(RMDIR) $(APP_BIN_PATH)/fpga
-
-clean-package: clean-host
-	-${RMDIR} $(APP_BIN_PATH)/fpga/package
-
-clean: clean-host clean-fpga clean-package
-	-${RMDIR} $(APP_BIN_PATH) .Xil .ipcache
-	-${RM} xcd.log xrc.log
-
-.PHONY: incremental
-incremental: all
-
-
-nothing:
-
-###############################################################################
-# binary container: generate .xclbin
-###############################################################################
-
-gen_xilinx_object: $(XO)
-
-$(XO): ./src/$(APP_NAME).cpp
-	-@mkdir -p $(@D)
-	$(VPP) $(VPP_TARGET) $(VPP_PLATFORM) --compile \
-	--temp_dir $(APP_BIN_PATH)/fpga --report_dir $(APP_BIN_PATH)/fpga/reports --log_dir $(APP_BIN_PATH)/fpga/logs \
-	-I "$(<D)" -k $(TOP_LEVEL_FUNCTION) -o "$@" "$<"
-
-
-gen_fpga_binary: $(XCLBIN)
-
-$(XCLBIN): $(XO)
-	-@mkdir -p $(@D)
-	$(VPP) $(VPP_TARGET) $(VPP_PLATFORM) --link \
-	--temp_dir $(APP_BIN_PATH)/fpga --report_dir $(APP_BIN_PATH)/fpga/reports --log_dir $(APP_BIN_PATH)/fpga/logs \
-	-o "$@" "$<"
-
-###############################################################################
-# host rules
-###############################################################################
-
-host: $(HOST_OBJECT)
-
-$(HOST_OBJECT): ./src/$(HOST_NAME).cpp
-	-@mkdir -p $(@D)
-	$(HOST_CXX) $(CXXFLAGS) -o "$@" "$<"
-
-fpga_package: $(HOST_EXE)
-
-$(HOST_EXE): $(HOST_OBJECT)
-	-@mkdir -p ./$(APP_BIN_PATH)/fpga/package
-	$(HOST_CXX) -o "$@" $(+) $(LDFLAGS)
-	-@$(VPP) $(VPP_TARGET) $(VPP_PLATFORM) --package \
-	--temp_dir $(APP_BIN_PATH)/fpga/src --report_dir $(APP_BIN_PATH)/fpga/reports --log_dir $(APP_BIN_PATH)/fpga/logs \
-	--package.domain linux_domain --package.sd_file $(HOST_EXE) \
-	--package.kernel_image $(VITIS_PLATFORM_DIR)/sw/$(VITIS_PLATFORM)/linux_domain/image/image.ub \
-	--package.rootfs $(VITIS_PLATFORM_DIR)/sw/$(VITIS_PLATFORM)/linux_domain/rootfs/rootfs.cpio \
-	--package.out_dir ./$(APP_BIN_PATH)/fpga/package $(XCLBIN)
-	-@cp $(BOOT_SCR) ./$(APP_BIN_PATH)/fpga/package/sd_card
-
-send_to_fpga: $(HOST_EXE)
-	-${RM} /media/charles/boot/*
-	-@cp -r ./$(APP_BIN_PATH)/fpga/package/sd_card/* /media/charles/boot/
