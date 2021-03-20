@@ -54,7 +54,7 @@ make gen_fpga_binary</code></pre>
 8. Send generated FPGA target files to bootable SD card:
 <pre><code>make send_to_fpga (may not work on kiwi)
 </code></pre>
-9. Run pipeline with implemented hardware kernels: 
+9. Plug SD card into FPGA, open the FPGA's command line using a program like PuTTY. Run pipeline with implemented hardware kernels: 
 <pre><code> ./{host executable} {APP.xclbin}
 </code></pre>
 10. Compare output to cpu output: **(NOT YET IMPLEMENTED)**
