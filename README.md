@@ -40,7 +40,7 @@ Instructions on how to add more applications to `fpga_builder` can be found [her
 In order to run a full Halide-to-Hardware pipeline on a Xilinx FPGA, follow these steps:
 1. From the top level directory of FPGA-gen, change into the application directory: `cd fpga_builder/apps/<APP>`
 2. In the app's Makefile, you can choose your Halide runtime target by setting `HL_TARGET`. This is currently set to `arm-64-linux`, but should be changed for your appropriate hardware target's processor.
-3. Also within the app's Makefile, you should specify the name of the application's top level function. You can also specify the directory your Vitis platform (.xpfm) is located in. These should be changed accordingly for your desired FPGA target.
+3. Also within the app's Makefile, you should specify the name of the application's top level function. You should also specify the directory your Vitis platform (.xpfm) is located in. The Vitis platform should be changed accordingly for your desired Xilinx FPGA target.
 4. Generate FPGA kernel design: 
 <pre><code>make clockwork_unopt_hls
 make gen_xilinx_object
@@ -52,7 +52,7 @@ make gen_fpga_binary</code></pre>
 <pre><code>make package_fpga
 </code></pre>
 8. Send generated FPGA target files to bootable SD card:
-<pre><code>make send_to_fpga
+<pre><code>make send_to_fpga (may not work on kiwi)
 </code></pre>
 9. Run pipeline with implemented hardware kernels: 
 <pre><code> ./{host executable} {APP.xclbin}
